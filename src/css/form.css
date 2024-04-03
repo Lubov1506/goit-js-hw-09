@@ -28,7 +28,7 @@
   border: 1px solid #808080;
 }
 .feedback-form textarea {
-  font-family: inherit;
+  font-family:Arial, Helvetica, sans-serif;
   resize: none;
   outline: transparent;
   padding: 8px 16px;

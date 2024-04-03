@@ -1,16 +1,33 @@
-const form = document.querySelector('.feedback-form');
-const inputEmail = form.elements.email;
-const textareaMsg = form.elements.message;
+const feedbackForm = document.querySelector('.feedback-form');
 
-inputEmail.value = localStorage.getItem('email') ?? '';
-textareaMsg.value = localStorage.getItem('message') ?? '';
+let userData = JSON.parse(localStorage.getItem('userFeedbackInfo')) ?? {};
 
-form.addEventListener('input', ({ target: { name, value } }) => {
-  localStorage.setItem([name], value);
-});
-form.addEventListener('submit', e => {
+const onFeedbackFields = () => {
+  try {
+    const userDataFromJS = JSON.parse(localStorage.getItem('userFeedbackInfo'));
+    if (userDataFromJS === null) {
+      return;
+    }
+    for (const key in userDataFromJS) {
+      feedbackForm.elements[key].value = userDataFromJS[key];
+    }
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+onFeedbackFields();
+
+const onFeedbackInput = e => {
+  const { name, value } = e.target;
+  userData[name] = value;
+
+  localStorage.setItem('userFeedbackInfo', JSON.stringify(userData));
+};
+const onFeedbackFormSumbit = e => {
   e.preventDefault();
-  localStorage.removeItem('email');
-  localStorage.removeItem('message');
-  form.reset();
-});
+
+  localStorage.removeItem('userFeedbackInfo');
+  feedbackForm.reset();
+};
+feedbackForm.addEventListener('input', onFeedbackInput);
+feedbackForm.addEventListener('submit', onFeedbackFormSumbit);
