@@ -16,6 +16,6 @@
 }
 
 .nav-link:hover,
-.nav-link:focus {
+.nav-link:focus, a.link:hover {
   color: #747bff;
 }
