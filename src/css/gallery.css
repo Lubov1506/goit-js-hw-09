@@ -1,0 +1,16 @@
+.gallery {
+  margin: 24px auto;
+  width: 1128px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.gallery-item {
+  width: calc(100% - 48px) / 3;
+  height: 200px;
+}
+.gallery-image {
+  width: 360px;
+  height: 100%;
+  object-fit: cover;
+}
