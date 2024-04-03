@@ -14,3 +14,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+.dark {
+  background-color: #2e2f42;
+}
+.light {
+  color: white;
+}

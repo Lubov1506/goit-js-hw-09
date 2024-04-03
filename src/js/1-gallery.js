@@ -89,7 +89,23 @@ gallery.insertAdjacentHTML('afterbegin', list);
 const links = document.querySelectorAll('.gallery-link');
 links.forEach(link => link.addEventListener('click', e => e.preventDefault()));
 
-const onImgClick = new SimpleLightbox('.gallery a', {
+const gallerySimple = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
+});
+
+gallerySimple.on('shown.simplelightbox', e => {
+  const overlay = document.querySelector('.sl-overlay');
+  const nextBtn = document.querySelector('.sl-next');
+  const prevBtn = document.querySelector('.sl-prev');
+  const closeBtn = document.querySelector('.sl-close');
+
+  nextBtn.style.color = 'white';
+  prevBtn.style.color = 'white';
+  closeBtn.style.color = 'white';
+
+  // * такий запис не спрацьовує
+  //overlay.classList.add('dark');
+
+  overlay.style.backgroundColor = '#2e2f42';
 });
