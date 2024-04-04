@@ -1,4 +1,3 @@
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import SimpleLightbox from 'simplelightbox';
 
 const images = [
@@ -95,18 +94,13 @@ const gallerySimple = new SimpleLightbox('.gallery a', {
 });
 
 gallerySimple.on('shown.simplelightbox', () => {
-
   const overlay = document.querySelector('.sl-overlay');
   const nextBtn = document.querySelector('.sl-next');
   const prevBtn = document.querySelector('.sl-prev');
   const closeBtn = document.querySelector('.sl-close');
-  
-  overlay.style.backgroundColor = '#2e2f42';
-  nextBtn.style.color = 'white';
-  prevBtn.style.color = 'white';
-  closeBtn.style.color = 'white';
-  
-  // * такий запис не спрацьовує
-  // closeBtn.classList.add('light');
-  //overlay.classList.add('dark');
+
+  overlay.classList.add('dark');
+  nextBtn.classList.add('light');
+  prevBtn.classList.add('light');
+  closeBtn.classList.add('light');
 });
